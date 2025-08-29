@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 💀</title>
-    <meta name="theme-color" content="#ff0000">
+    <title>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 ☠️</title>
+    <meta name="theme-color" content="#000000">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink:wght@400;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap');
@@ -27,7 +27,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
             line-height: 1.6;
             font-weight: bold;
@@ -41,62 +41,91 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
         
         .welcome-message {
-            background: linear-gradient(45deg, #000, #200, #000);
-            border: 3px solid #ff3333;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
-            max-width: 600px;
-            width: 90%;
+            background: linear-gradient(45deg, #000, #222, #000);
+            border: 2px solid #ff3333;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            max-width: 500px;
+            width: 95%;
         }
         
         .welcome-title {
-            font-size: 2.5rem;
-            color: #ffffff; /* تغيير إلى الأبيض */
-            text-shadow: 0 0 15px #ffffff; /* تغيير إلى الأبيض */
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff;
+            margin-bottom: 20px;
             font-family: 'Aref Ruqaa Ink', serif;
         }
         
         .welcome-text {
-            font-size: 1.3rem;
-            color: #ffffff; /* تغيير إلى الأبيض */
-            margin: 20px 0;
-            text-shadow: 0 0 5px #ffffff; /* تغيير إلى الأبيض */
-            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin: 15px 0;
+            text-shadow: 0 0 5px #ffffff;
+            line-height: 1.7;
+        }
+        
+        .code-input {
+            background: #111;
+            border: 2px solid #ff3333;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1.2rem;
+            color: #fff;
+            text-align: center;
+            margin: 15px 0;
+            width: 180px;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        
+        .error-message {
+            color: #ff3333;
+            font-size: 0.9rem;
+            margin: 8px 0;
+            display: none;
+            font-weight: bold;
+            text-shadow: 0 0 3px #ff0000;
         }
         
         .enter-btn {
             background: linear-gradient(45deg, #ff3333, #ff0000, #ff3333);
             color: #000;
             border: 2px solid #ffcc00;
-            padding: 18px 40px;
-            font-size: 1.8rem;
-            border-radius: 50px;
+            padding: 14px 30px;
+            font-size: 1.4rem;
+            border-radius: 40px;
             cursor: pointer;
-            margin-top: 40px;
+            margin-top: 15px;
             font-weight: 900;
             text-shadow: 0 0 5px #000;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
             transition: all 0.3s;
             font-family: 'Aref Ruqaa Ink', serif;
         }
         
         .enter-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+        }
+        
+        .enter-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
         }
         
         /* تأثير الماتريكس في الخلفية */
@@ -107,7 +136,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.15;
             pointer-events: none;
         }
         
@@ -119,211 +148,123 @@
             height: 100%;
             z-index: -1;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 40% 80%, rgba(255, 0, 0, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 60% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 20%);
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 40% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 60% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 20%);
             pointer-events: none;
         }
         
-        .scary-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23ff0000" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
-            z-index: -1;
-            opacity: 0.3;
-            pointer-events: none;
-        }
-        
-        .floating-ghosts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .ghost {
+        .floating-skull {
             position: absolute;
-            font-size: 40px;
-            animation: float-ghost 25s infinite linear;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
-            opacity: 0.1;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
             z-index: -1;
         }
         
-        @keyframes float-ghost {
-            0% {
-                transform: translateY(100vh) translateX(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(75vh) translateX(50px) rotate(90deg);
-            }
-            50% {
-                transform: translateY(50vh) translateX(-50px) rotate(180deg);
-            }
-            75% {
-                transform: translateY(25vh) translateX(50px) rotate(270deg);
-            }
-            100% {
-                transform: translateY(-100px) translateX(0) rotate(360deg);
-            }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         
         .container {
-            width: 90%;
-            max-width: 650px;
-            padding: 30px;
-            border: 3px solid #ff3333;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7),
-                        inset 0 0 30px rgba(255, 0, 0, 0.5);
+            width: 92%;
+            max-width: 600px;
+            padding: 25px;
+            border: 2px solid #ff3333;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6),
+                        inset 0 0 25px rgba(255, 0, 0, 0.4);
             background-color: rgba(20, 20, 20, 0.95);
             position: relative;
             overflow: hidden;
             z-index: 1;
-            margin: 20px 0;
-            backdrop-filter: blur(5px);
+            margin: 15px 0;
+            backdrop-filter: blur(4px);
             display: none;
-        }
-        
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(45deg, transparent 48%, rgba(255, 0, 0, 0.1) 50%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(255, 0, 0, 0.1) 50%, transparent 52%);
-            background-size: 25px 25px;
-            z-index: -1;
-            opacity: 0.7;
         }
         
         h1 {
             font-family: 'Aref Ruqaa Ink', serif;
-            font-size: 3rem;
-            text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
+            font-size: 2.2rem;
+            text-shadow: 0 0 12px #ff3333, 0 0 20px #ff0000;
             margin-top: 0;
             animation: flicker 3s infinite alternate;
-            margin-bottom: 25px;
-            background: linear-gradient(45deg, #ffffff, #ff9999, #ffffff);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #eeeeee, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px #ff3333);
+            filter: drop-shadow(0 0 15px #ff3333);
             text-align: center;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 900;
-            padding: 15px;
-            position: relative;
-        }
-        
-        h1::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ff3333, transparent);
-            animation: pulse-line 2s infinite;
+            padding: 12px;
         }
         
         .developer {
             color: #ffff00;
             font-weight: 900;
-            text-shadow: 0 0 12px #ffff00, 0 0 25px #ffaa00;
-            margin: 25px 0;
-            font-size: 1.8rem;
+            text-shadow: 0 0 10px #ffff00, 0 0 20px #ffaa00;
+            margin: 20px 0;
+            font-size: 1.4rem;
             animation: glow 2s infinite alternate;
             background: linear-gradient(45deg, #ffff00, #ffcc00, #ffff00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             text-align: center;
-            border: 3px solid #ffcc00;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skull-icon {
-            font-size: 2.5rem;
-            margin: 0 10px;
-            animation: float 3s infinite ease-in-out;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+            border: 2px solid #ffcc00;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
         }
         
         .form-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: right;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .form-group::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff3333, transparent);
-            animation: matrix-line 3s linear infinite;
         }
         
         label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 900;
             color: #ffffff;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
             padding: 5px 0;
-            text-shadow: 0 0 8px #ff3333;
+            text-shadow: 0 0 6px #ff3333;
         }
         
         .hint {
-            font-size: 1.1rem;
-            color: #ff9999;
-            margin-top: 8px;
-            text-shadow: 0 0 5px #ff3333;
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 6px;
+            text-shadow: 0 0 4px #ff3333;
             background: rgba(40, 40, 40, 0.9);
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 3px solid #ff3333;
-            line-height: 1.6;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 2px solid #ff3333;
+            line-height: 1.5;
             font-weight: 700;
         }
         
         input, textarea {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background-color: #1a1a1a;
             color: #ffffff;
             border: 2px solid #ff3333;
-            border-radius: 10px;
+            border-radius: 8px;
             box-sizing: border-box;
             font-family: 'Reem Kufi Ink', sans-serif;
-            box-shadow: inset 0 0 12px rgba(255, 0, 0, 0.6);
+            box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.5);
             transition: all 0.3s;
             font-weight: 700;
-            position: relative;
-            overflow: hidden;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         input:focus, textarea:focus {
             outline: none;
-            box-shadow: 0 0 20px #ff3333, inset 0 0 12px rgba(255, 0, 0, 0.6);
+            box-shadow: 0 0 15px #ff3333, inset 0 0 10px rgba(255, 0, 0, 0.5);
             background-color: #222222;
         }
         
@@ -333,245 +274,102 @@
             font-weight: 600;
         }
         
-        .matrix-field::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(transparent 90%, rgba(255, 0, 0, 0.1) 100%);
-            background-size: 100% 5px;
-            z-index: 1;
-            pointer-events: none;
-            animation: matrix-flow 20s infinite linear;
-        }
-        
-        .color-change-btn {
-            background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
-            color: #ffffff;
-            border: 2px solid #ff3333;
-            padding: 16px 24px;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Aref Ruqaa Ink', serif;
-            transition: all 0.3s;
-            text-shadow: 0 0 8px #ff3333;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-            margin: 8px;
-            font-weight: 900;
-            min-width: 170px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .color-change-btn:hover {
-            background: linear-gradient(45deg, #ff3333, #ff6666, #ff3333);
-            color: #000;
-            text-shadow: none;
-            box-shadow: 0 0 25px #ff3333;
-        }
-        
-        .text-change-btn {
-            background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
-            color: #ffffff;
-            border: 2px solid #33ff33;
-            padding: 16px 24px;
-            font-size: 1.2rem;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Aref Ruqaa Ink', serif;
-            transition: all 0.3s;
-            text-shadow: 0 0 8px #33ff33;
-            box-shadow: 0 0 15px rgba(51, 255, 51, 0.7);
-            margin: 8px;
-            font-weight: 900;
-            min-width: 170px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .text-change-btn:hover {
-            background: linear-gradient(45deg, #33ff33, #66ff66, #33ff33);
-            color: #000;
-            text-shadow: none;
-            box-shadow: 0 0 25px #33ff33;
-        }
-        
         .buttons-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 25px;
+            margin-top: 20px;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
         
         button {
             background: linear-gradient(45deg, #1a1a1a, #252525, #1a1a1a);
             color: #ffffff;
-            border: 3px solid #ff3333;
-            padding: 18px 32px;
-            font-size: 1.4rem;
-            border-radius: 10px;
+            border: 2px solid #ff3333;
+            padding: 14px 25px;
+            font-size: 1.2rem;
+            border-radius: 8px;
             cursor: pointer;
             font-family: 'Aref Ruqaa Ink', serif;
             transition: all 0.3s;
-            text-shadow: 0 0 10px #ff3333;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-            position: relative;
-            overflow: hidden;
+            text-shadow: 0 0 8px #ff3333;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
             font-weight: 900;
-            min-width: 220px;
+            flex: 1;
+            min-width: 160px;
         }
         
         button:hover {
             background: linear-gradient(45deg, #ff3333, #ff6666, #ff3333);
             color: #000;
             text-shadow: none;
-            box-shadow: 0 0 30px #ff3333;
+            box-shadow: 0 0 25px #ff3333;
         }
         
-        button::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right, 
-                rgba(255, 255, 255, 0.2), 
-                rgba(255, 0, 0, 0.15), 
-                transparent
-            );
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-        
-        .surprise-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 12px 16px;
-            border-radius: 50px;
-            border: 2px solid #ff33ff;
-            color: #ff33ff;
-            font-weight: bold;
-            text-shadow: 0 0 8px #ff33ff;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 0 15px rgba(255, 51, 255, 0.7);
-        }
-        
-        .surprise-btn:hover {
-            background: #ff33ff;
-            color: #000;
-        }
-        
-        .hidden-message {
-            position: fixed;
-            bottom: 250px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px;
+        .scary-text {
+            animation: scary 10s infinite;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            color: #ffffff;
+            text-shadow: 0 0 6px #ff3333;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 12px;
+            border-radius: 8px;
             border: 2px solid #ff3333;
-            border-radius: 10px;
-            color: #ff3333;
-            font-weight: bold;
-            text-shadow: 0 0 5px #ff3333;
-            display: none;
-            z-index: 100;
-            animation: message-pulse 2s infinite;
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 700;
         }
         
-        @keyframes message-pulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+        .email-info {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ff3333;
+            margin-top: 15px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .countdown {
+            font-size: 1rem;
+            color: #ff3333;
+            text-shadow: 0 0 4px #ff0000;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        
+        .floating-eyes {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: blink 4s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes blink {
+            0%, 45%, 50%, 55%, 100% { opacity: 0.7; }
+            47%, 53% { opacity: 0.2; }
         }
         
         @keyframes flicker {
             0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
+                text-shadow: 0 0 12px #ff3333, 0 0 20px #ff0000;
                 opacity: 1;
             }
             20%, 24%, 55% {
-                text-shadow: 0 0 20px #ff3333, 0 0 35px #ff0000;
+                text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
                 opacity: 0.9;
             }
         }
         
         @keyframes glow {
             0% {
-                text-shadow: 0 0 10px #ffff00, 0 0 20px #ffaa00;
+                text-shadow: 0 0 8px #ffff00, 0 0 15px #ffaa00;
             }
             100% {
-                text-shadow: 0 0 20px #ffff00, 0 0 35px #ffaa00, 0 0 45px #ff8800;
+                text-shadow: 0 0 15px #ffff00, 0 0 25px #ffaa00, 0 0 35px #ff8800;
             }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) rotate(30deg);
-            }
-            100% {
-                transform: translateX(100%) rotate(30deg);
-            }
-        }
-        
-        @keyframes matrix-line {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-        
-        @keyframes matrix-flow {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 0 100%;
-            }
-        }
-        
-        @keyframes pulse-line {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-        
-        .scary-text {
-            animation: scary 10s infinite;
-            font-size: 1.3rem;
-            margin-top: 25px;
-            color: #ff9999;
-            text-shadow: 0 0 8px #ff3333;
-            background: rgba(40, 40, 40, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #ff3333;
-            text-align: center;
-            line-height: 1.6;
-            font-weight: 700;
         }
         
         @keyframes scary {
@@ -582,83 +380,435 @@
                 opacity: 1;
             }
         }
-        
-        .floating-symbols {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .symbol {
-            position: absolute;
-            color: rgba(255, 0, 0, 0.3);
-            font-size: 24px;
-            animation: float-symbol 15s infinite linear;
-            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
-            z-index: -1;
-        }
-        
-        @keyframes float-symbol {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
+
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+                margin: 10px;
+                width: 95%;
             }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
+            
+            h1 {
+                font-size: 1.8rem;
             }
-        }
-        
-        .matrix-text {
-            position: absolute;
-            color: #ff3333;
-            font-family: monospace;
-            z-index: -1;
-            opacity: 0.7;
-            text-shadow: 0 0 5px #ff3333;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .floating-emojis {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .emoji {
-            position: absolute;
-            font-size: 30px;
-            animation: float-emoji 20s infinite linear;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
-            opacity: 0.8;
-            z-index: -1;
-        }
-        
-        @keyframes float-emoji {
-            0% {
-                transform: translateY(100vh) rotate(0deg) scale(1);
+            
+            .developer {
+                font-size: 1.2rem;
             }
-            50% {
-                transform: translateY(50vh) rotate(180deg) scale(1.2);
+            
+            .buttons-container {
+                flex-direction: column;
             }
-            100% {
-                transform: translateY(-100px) rotate(360deg) scale(1);
+            
+            button {
+                width: 100%;
+                margin: 6px 0;
+                padding: 12px 18px;
+                font-size: 1.1rem;
+                min-width: unset;
+            }
+            
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-text {
+                font-size: 1rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+            
+            .welcome-message {
+                padding: 15px;
             }
         }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+                padding: 10px;
+            }
+            
+            .developer {
+                font-size: 1.1rem;
+                padding: 10px;
+            }
+            
+            .welcome-title {
+                font-size: 1.4rem;
+            }
+            
+            .welcome-text {
+                font-size: 0.95rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            
+            .code-input {
+                width: 160px;
+                font-size: 1.1rem;
+                padding: 10px;
+            }
+            
+            label {
+                font-size: 1rem;
+            }
+            
+            input, textarea {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .scary-text {
+                font-size: 1rem;
+            }
+        }
         
+        /* تأثيرات إضافية */
         .pulse {
             animation: pulse 2s infinite;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .typing-demo {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* تأثيرات جديدة */
+        .blood-drip {
+            position: fixed;
+            top: -50px;
+            width: 3px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, #ff0000);
+            animation: drip 8s linear infinite;
+            z-index: 999;
+        }
+        
+        @keyframes drip {
+            0% { top: -50px; opacity: 0; }
+            10% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+        
+        .hidden-message {
+            position: absolute;
+            color: #fff;
+            font-size: 0.8rem;
+            opacity: 0.1;
+            transition: opacity 0.5s;
+            cursor: default;
+            user-select: none;
+        }
+        
+        .hidden-message:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div class="blood-effect"></div>
+    
+    <!-- جماجم وعيون عائمة -->
+    <div class="floating-skull" style="top: 10%; left: 5%;">🇵🇸</div>
+    <div class="floating-skull" style="top: 20%; right: 10%;">🇵🇸</div>
+    <div class="floating-skull" style="bottom: 30%; left: 15%;">🇵🇸</div>
+    <div class="floating-eyes" style="top: 40%; right: 5%;">🇵🇸</div>
+    <div class="floating-eyes" style="bottom: 20%; right: 20%;">🇵🇸</div>
+    
+    <!-- تأثيرات جديدة - المزيد من قطرات الدم -->
+    <div class="blood-drip" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="blood-drip" style="left: 12%; animation-delay: 1s;"></div>
+    <div class="blood-drip" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="blood-drip" style="left: 28%; animation-delay: 3s;"></div>
+    <div class="blood-drip" style="left: 35%; animation-delay: 4s;"></div>
+    <div class="blood-drip" style="left: 45%; animation-delay: 0.5s;"></div>
+    <div class="blood-drip" style="left: 55%; animation-delay: 1.5s;"></div>
+    <div class="blood-drip" style="left: 65%; animation-delay: 2.5s;"></div>
+    <div class="blood-drip" style="left: 75%; animation-delay: 3.5s;"></div>
+    <div class="blood-drip" style="left: 85%; animation-delay: 4.5s;"></div>
+    <div class="blood-drip" style="left: 95%; animation-delay: 0.8s;"></div>
+    
+    <!-- شاشة الترحيب -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-message">
+            <div class="welcome-title">أهلًا بك ياـعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻</div>
+            <div class="welcome-text">"سـيـتـم دوسـ👞ـكـم مـن قـيـبلـي وسـتحـنـون رؤسـكـم لـي اجـلي💋"</div>
+            <div class="welcome-text">"إذا اثـرتـمـ الـغـضـب فـيـنـيـ فـإن دمـائـكـم لـن تـكـفـيـنـيـ💪🏻🔥🍷"</div>
+            <div class="welcome-text">"الـلـهـم إنـصـر إخـوانـنـا فـي فـلـسـطـيـ🇵🇸ـنـ يا الـلـه👐🏻"</div>
+            
+            <input type="text" class="code-input" id="accessCode" placeholder="أدخل الرمز🇵🇸" maxlength="6">
+            <div class="error-message" id="errorMessage">الرمز غير صحيح! الرمز الصحيح: 122221</div>
+            <button class="enter-btn" id="enterBtn" disabled>دخـولـ🍷🌹 العويسـ</button>
+        </div>
+    </div>
+    
+    <div class="container" id="mainContainer">
+        <h1>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 ☠️</h1>
+        
+        <div class="developer">
+            الــعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻
+        </div>
+        
+        <form id="reportForm">
+            <div class="form-group">
+                <label for="subject"> موضوع البلاغـ👇🏻</label>
+                <input type="text" id="subject" name="subject" required placeholder="أدخل موضوع البلاغ ياقلب العويسـ💋">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">💬 الرسالة ياحبـ👇🏻</label>
+                <textarea id="message" name="message" rows="4" required placeholder="أدخل محتوى الرسالة ياقلبـ🌹"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">رقم القحبهـ👇🏻</label>
+                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم الخروفـ🐑">
+                <div class="hint">راقبـ رقمك وتعمق كيف سيتم إنتهاكهـ من قبلـ: الــعــويـسـ عـ💀ـدو إبـلـيـسـ✌🏻</div>
+            </div>
+            
+            <div class="buttons-container">
+                <button type="submit" class="pulse">☕ إرسال الرسالة 💀</button>
+                <button type="button" id="clearBtn">🗑️ مسح الحقول</button>
+            </div>
+        </form>
+        
+        <div class="scary-text typing-demo">
+            👁️ نحن نراقبك... لا تحاول الهرب... واتساب لن يحميك فلا مكان للقحابـ... ⚰️
+        </div>
+        
+        <div class="email-info" id="emailInfo" style="display: none;">
+            <p>سيتم إرسال رسالتك ياقلبـ عواد🍷</p>
+            <p class="countdown" id="countdown"></p>
+        </div>
+    </div>
+
+    <script>
+        // تأثير الماتريكس في الخلفية
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const arabicNums = '٠١٢٣٤٥٦٧٨٩0123456789';
+        const latinChars = '01{}[]!@#$%^&*()_+-=';
+        const chars = (arabicNums + latinChars).split('');
+        
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * 100;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#ff3333';
+            ctx.font = `bold ${fontSize}px monospace`;
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 70);
+        
+        // التحقق من رمز الدخول
+        const accessCodeInput = document.getElementById('accessCode');
+        const enterBtn = document.getElementById('enterBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const correctCode = "122221";
+        
+        accessCodeInput.addEventListener('input', function() {
+            enterBtn.disabled = this.value !== correctCode;
+            
+            if (this.value.length > 0) {
+                errorMessage.style.display = 'none';
+            }
+        });
+        
+        accessCodeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (this.value === correctCode) {
+                    enterPage();
+                } else {
+                    showError();
+                }
+            }
+        });
+        
+        function showError() {
+            errorMessage.style.display = 'block';
+            accessCodeInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                accessCodeInput.style.animation = '';
+            }, 500);
+        }
+        
+        function enterPage() {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('emailInfo').style.display = 'block';
+            
+            // تأثيرات إضافية عند الدخول
+            document.body.classList.add('pulse');
+            setTimeout(() => {
+                document.body.classList.remove('pulse');
+            }, 2000);
+        }
+        
+        enterBtn.addEventListener('click', function() {
+            if (accessCodeInput.value === correctCode) {
+                enterPage();
+            } else {
+                showError();
+            }
+        });
+        
+        // زر مسح الحقول
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            document.getElementById('subject').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('phone').value = '';
+        });
+        
+        // معالجة إرسال النموذج
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!phone || !subject || !message) {
+                alert('⚠️ يرجى ملء جميع الحقول المطلوبة!');
+                return;
+            }
+            
+            // عناوين بريدات واتساب
+            const emails = [
+                'support@whatsapp.com',
+                'android@support.whatsapp.com',
+                'iphone@support.whatsapp.com',
+                'web@support.whatsapp.com',
+                'smb@support.whatsapp.com',
+                'account@support.whatsapp.com'
+            ];
+            
+            // نص الرسالة بالتنسيق المطلوب
+            const fullMessage = `${subject}\n\n${message}\n\nhttps://wa.me/${phone}`;
+            
+            // عرض العد التنازلي
+            const countdownElement = document.getElementById('countdown');
+            let countdown = 3;
+            
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = `جاري الإرسال خلال ${countdown} ثواني...`;
+                countdown--;
+                
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    sendEmails(emails, subject, fullMessage);
+                }
+            }, 1000);
+        });
+        
+        function sendEmails(emails, subject, message) {
+            let emailCount = 0;
+            
+            function sendNextEmail() {
+                if (emailCount < emails.length) {
+                    const mailtoLink = `mailto:${emails[emailCount]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+                    window.open(mailtoLink, '_blank');
+                    emailCount++;
+                    setTimeout(sendNextEmail, 100);
+                } else {
+                    setTimeout(() => {
+                        alert('💀 تم إرسال البلاغ لجميع بريدات دعم واتساب! 😈🍷');
+                        document.getElementById('countdown').textContent = '';
+                    }, 1000);
+                }
+            }
+            
+            sendNextEmail();
+        }
+
+        // إعادة ضبط حجم Canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // تأثير الاهتزاز
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+                20%, 40%, 60%, 80% { transform: translateX(8px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // إضافة تأثير كتابة للنص المخيف
+        setTimeout(() => {
+            document.querySelector('.scary-text').classList.remove('typing-demo');
+        }, 4000);
+        
+        // إضافة رسائل خفية
+        const hiddenMessages = [
+            "لقد وجدت رسالتي السرية...",
+            "أنت مراقب الآن...",
+            "هذه ليست نهاية القصة...",
+            "الظلال تراقبك...",
+            "لا تثق بما تراه..."
+        ];
+        
+        // إضافة رسائل خفية عشوائية
+        for (let i = 0; i < 3; i++) {
+            const msg = document.createElement('div');
+            msg.className = 'hidden-message';
+            msg.textContent = hiddenMessages[Math.floor(Math.random() * hiddenMessages.length)];
+            msg.style.top = Math.random() * 100 + '%';
+            msg.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(msg);
+        }
+    </script>
+</body>
+  </html>scale(1); }
             50% { transform: scale(1.08); }
             100% { transform: scale(1); }
         }
