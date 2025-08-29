@@ -808,6 +808,494 @@
         }
     </script>
 </body>
+        </html>  }
+        
+        .email-info {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ff3333;
+            margin-top: 15px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .countdown {
+            font-size: 1rem;
+            color: #ff3333;
+            text-shadow: 0 0 4px #ff0000;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        
+        .floating-eyes {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: blink 4s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes blink {
+            0%, 45%, 50%, 55%, 100% { opacity: 0.7; }
+            47%, 53% { opacity: 0.2; }
+        }
+        
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 12px #ff3333, 0 0 20px #ff0000;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: 0 0 15px #ff3333, 0 0 25px #ff0000;
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 8px #ffff00, 0 0 15px #ffaa00;
+            }
+            100% {
+                text-shadow: 0 0 15px #ffff00, 0 0 25px #ffaa00, 0 0 35px #ff8800;
+            }
+        }
+        
+        @keyframes scary {
+            0%, 55%, 60%, 65%, 70%, 100% {
+                opacity: 0.9;
+            }
+            50%, 57%, 62%, 67% {
+                opacity: 1;
+            }
+        }
+
+        /* تحسينات للجوال */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+                margin: 10px;
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .developer {
+                font-size: 1.2rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+                margin: 6px 0;
+                padding: 12px 18px;
+                font-size: 1.1rem;
+                min-width: unset;
+            }
+            
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-text {
+                font-size: 1rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.2rem;
+                padding: 12px 25px;
+            }
+            
+            .welcome-message {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+                padding: 10px;
+            }
+            
+            .developer {
+                font-size: 1.1rem;
+                padding: 10px;
+            }
+            
+            .welcome-title {
+                font-size: 1.4rem;
+            }
+            
+            .welcome-text {
+                font-size: 0.95rem;
+            }
+            
+            .enter-btn {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            
+            .code-input {
+                width: 160px;
+                font-size: 1.1rem;
+                padding: 10px;
+            }
+            
+            label {
+                font-size: 1rem;
+            }
+            
+            input, textarea {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .scary-text {
+                font-size: 1rem;
+            }
+        }
+        
+        /* تأثيرات إضافية */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .typing-demo {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* تأثيرات جديدة */
+        .blood-drip {
+            position: fixed;
+            top: -50px;
+            width: 3px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, #ff0000);
+            animation: drip 8s linear infinite;
+            z-index: 999;
+        }
+        
+        @keyframes drip {
+            0% { top: -50px; opacity: 0; }
+            10% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+        
+        .hidden-message {
+            position: absolute;
+            color: #fff;
+            font-size: 0.8rem;
+            opacity: 0.1;
+            transition: opacity 0.5s;
+            cursor: default;
+            user-select: none;
+        }
+        
+        .hidden-message:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-bg"></canvas>
+    <div class="blood-effect"></div>
+    
+    <!-- جماجم وعيون عائمة -->
+    <div class="floating-skull" style="top: 10%; left: 5%;">🇵🇸</div>
+    <div class="floating-skull" style="top: 20%; right: 10%;">🇵🇸</div>
+    <div class="floating-skull" style="bottom: 30%; left: 15%;">🇵🇸</div>
+    <div class="floating-eyes" style="top: 40%; right: 5%;">🇵🇸</div>
+    <div class="floating-eyes" style="bottom: 20%; right: 20%;">🇵🇸</div>
+    
+    <!-- تأثيرات جديدة - المزيد من قطرات الدم -->
+    <div class="blood-drip" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="blood-drip" style="left: 12%; animation-delay: 1s;"></div>
+    <div class="blood-drip" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="blood-drip" style="left: 28%; animation-delay: 3s;"></div>
+    <div class="blood-drip" style="left: 35%; animation-delay: 4s;"></div>
+    <div class="blood-drip" style="left: 45%; animation-delay: 0.5s;"></div>
+    <div class="blood-drip" style="left: 55%; animation-delay: 1.5s;"></div>
+    <div class="blood-drip" style="left: 65%; animation-delay: 2.5s;"></div>
+    <div class="blood-drip" style="left: 75%; animation-delay: 3.5s;"></div>
+    <div class="blood-drip" style="left: 85%; animation-delay: 4.5s;"></div>
+    <div class="blood-drip" style="left: 95%; animation-delay: 0.8s;"></div>
+    
+    <!-- شاشة الترحيب -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-message">
+            <div class="welcome-title">أهلًا بك ياـعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻</div>
+            <div class="welcome-text">"سـيـتـم دوسـ👞ـكـم مـن قـيـبلـي وسـتحـنـون رؤسـكـم لـي اجـلي💋"</div>
+            <div class="welcome-text">"إذا اثـرتـمـ الـغـضـب فـيـنـيـ فـإن دمـائـكـم لـن تـكـفـيـنـيـ💪🏻🔥🍷"</div>
+            <div class="welcome-text">"الـلـهـم إنـصـر إخـوانـنـا فـي فـلـسـطـيـ🇵🇸ـنـ يا الـلـه👐🏻"</div>
+            
+            <input type="text" class="code-input" id="accessCode" placeholder="أدخل الرمز🇵🇸" maxlength="6">
+            <div class="error-message" id="errorMessage">الرمز غير صحيح! الرمز الصحيح: 122221</div>
+            <button class="enter-btn" id="enterBtn" disabled>دخـولـ🍷🌹 العويسـ</button>
+        </div>
+    </div>
+    
+    <div class="container" id="mainContainer">
+        <h1>𝔚𝔥𝔞𝔱𝔰𝔄𝔭𝔭 𝔅𝔞𝔫𝔞𝔫𝔞 ☠️</h1>
+        
+        <div class="developer">
+            الــعــويـسـ عـ💀ـدو إبـلـيـسـ😈✌🏻
+        </div>
+        
+        <form id="reportForm">
+            <div class="form-group">
+                <label for="subject"> موضوع البلاغـ👇🏻</label>
+                <input type="text" id="subject" name="subject" required placeholder="أدخل موضوع البلاغ ياقلب العويسـ💋">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">💬 الرسالة ياحبـ👇🏻</label>
+                <textarea id="message" name="message" rows="4" required placeholder="أدخل محتوى الرسالة ياقلبـ🌹"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">رقم القحبهـ👇🏻</label>
+                <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم الخروفـ🐑">
+                <div class="hint">راقبـ رقمك وتعمق كيف سيتم إنتهاكهـ من قبلـ: الــعــويـسـ عـ💀ـدو إبـلـيـسـ✌🏻</div>
+            </div>
+            
+            <div class="buttons-container">
+                <button type="submit" class="pulse">☕ إرسال الرسالة 💀</button>
+                <button type="button" id="clearBtn">🗑️ مسح الحقول</button>
+            </div>
+        </form>
+        
+        <div class="scary-text typing-demo">
+            👁️ نحن نراقبك... لا تحاول الهرب... واتساب لن يحميك فلا مكان للقحابـ... ⚰️
+        </div>
+        
+        <div class="email-info" id="emailInfo" style="display: none;">
+            <p>سيتم إرسال رسالتك ياقلبـ عواد🍷</p>
+            <p class="countdown" id="countdown"></p>
+        </div>
+    </div>
+
+    <script>
+        // تأثير الماتريكس في الخلفية
+        const canvas = document.getElementById('matrix-bg');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const arabicNums = '٠١٢٣٤٥٦٧٨٩0123456789';
+        const latinChars = '01{}[]!@#$%^&*()_+-=';
+        const chars = (arabicNums + latinChars).split('');
+        
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * 100;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#ff3333';
+            ctx.font = `bold ${fontSize}px monospace`;
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 70);
+        
+        // التحقق من رمز الدخول
+        const accessCodeInput = document.getElementById('accessCode');
+        const enterBtn = document.getElementById('enterBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const correctCode = "122221";
+        
+        accessCodeInput.addEventListener('input', function() {
+            enterBtn.disabled = this.value !== correctCode;
+            
+            if (this.value.length > 0) {
+                errorMessage.style.display = 'none';
+            }
+        });
+        
+        accessCodeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (this.value === correctCode) {
+                    enterPage();
+                } else {
+                    showError();
+                }
+            }
+        });
+        
+        function showError() {
+            errorMessage.style.display = 'block';
+            accessCodeInput.style.animation = 'shake 0.5s';
+            setTimeout(() => {
+                accessCodeInput.style.animation = '';
+            }, 500);
+        }
+        
+        function enterPage() {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('emailInfo').style.display = 'block';
+            
+            // تأثيرات إضافية عند الدخول
+            document.body.classList.add('pulse');
+            setTimeout(() => {
+                document.body.classList.remove('pulse');
+            }, 2000);
+        }
+        
+        enterBtn.addEventListener('click', function() {
+            if (accessCodeInput.value === correctCode) {
+                enterPage();
+            } else {
+                showError();
+            }
+        });
+        
+        // زر مسح الحقول
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            document.getElementById('subject').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('phone').value = '';
+        });
+        
+        // معالجة إرسال النموذج
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!phone || !subject || !message) {
+                alert('⚠️ يرجى ملء جميع الحقول المطلوبة!');
+                return;
+            }
+            
+            // عناوين بريدات واتساب
+            const emails = [
+                'support@whatsapp.com',
+                'android@support.whatsapp.com',
+                'iphone@support.whatsapp.com',
+                'web@support.whatsapp.com',
+                'smb@support.whatsapp.com',
+                'account@support.whatsapp.com'
+            ];
+            
+            // نص الرسالة بالتنسيق المطلوب
+            const fullMessage = `${subject}\n\n${message}\n\nhttps://wa.me/${phone}`;
+            
+            // عرض العد التنازلي
+            const countdownElement = document.getElementById('countdown');
+            let countdown = 3;
+            
+            const countdownInterval = setInterval(() => {
+                countdownElement.textContent = `جاري الإرسال خلال ${countdown} ثواني...`;
+                countdown--;
+                
+                if (countdown < 0) {
+                    clearInterval(countdownInterval);
+                    sendEmails(emails, subject, fullMessage);
+                }
+            }, 1000);
+        });
+        
+        function sendEmails(emails, subject, message) {
+            let emailCount = 0;
+            
+            function sendNextEmail() {
+                if (emailCount < emails.length) {
+                    const mailtoLink = `mailto:${emails[emailCount]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+                    window.open(mailtoLink, '_blank');
+                    emailCount++;
+                    setTimeout(sendNextEmail, 100);
+                } else {
+                    setTimeout(() => {
+                        alert('💀 تم إرسال البلاغ لجميع بريدات دعم واتساب! 😈🍷');
+                        document.getElementById('countdown').textContent = '';
+                    }, 1000);
+                }
+            }
+            
+            sendNextEmail();
+        }
+
+        // إعادة ضبط حجم Canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // تأثير الاهتزاز
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+                20%, 40%, 60%, 80% { transform: translateX(8px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // إضافة تأثير كتابة للنص المخيف
+        setTimeout(() => {
+            document.querySelector('.scary-text').classList.remove('typing-demo');
+        }, 4000);
+        
+        // إضافة رسائل خفية
+        const hiddenMessages = [
+            "لقد وجدت رسالتي السرية...",
+            "أنت مراقب الآن...",
+            "هذه ليست نهاية القصة...",
+            "الظلال تراقبك...",
+            "لا تثق بما تراه..."
+        ];
+        
+        // إضافة رسائل خفية عشوائية
+        for (let i = 0; i < 3; i++) {
+            const msg = document.createElement('div');
+            msg.className = 'hidden-message';
+            msg.textContent = hiddenMessages[Math.floor(Math.random() * hiddenMessages.length)];
+            msg.style.top = Math.random() * 100 + '%';
+            msg.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(msg);
+        }
+    </script>
+</body>
   </html>scale(1); }
             50% { transform: scale(1.08); }
             100% { transform: scale(1); }
